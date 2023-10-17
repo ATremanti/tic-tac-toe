@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap');
+
+body {
+    margin: 0;
+    font-size: 1em;
+}
+
+#gameBoard {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.header {
+    margin-bottom: 0;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3.5em;
+}
+
+.squares {
+    height: 150px;
+    width: 150px;
+    border: 1px solid black;
+}
+
+.sq-top {
+    border-top: none;
+}
+
+.sq-left {
+    border-left: none;
+}
+
+.sq-right {
+    border-right: none;
+}
+
+.sq-bottom {
+    border-bottom: none;
+}
