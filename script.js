@@ -34,7 +34,9 @@ function placeMarker(e) {
         nextPlayer = player1;
         if (checkResult()) {
             showModal();
-        };
+        } else if(checkDraw()) {
+            showModalDraw();
+        }
     } else {
         square.innerText = 'O';
         square.classList.add('marker-o');
@@ -42,7 +44,9 @@ function placeMarker(e) {
         nextPlayer = player2;
         if (checkResult()) {
             showModal();
-        };
+        } else if(checkDraw()) {
+            showModalDraw();
+        }
     }
 }
 
@@ -60,12 +64,24 @@ function checkResult() {
     })
 }
 
+function checkDraw() {
+    return [...gameBoard].every(square => {
+        return square.innerText == 'X' || square.innerText == 'O';
+    })
+}
+
 function showModal() {
     if (nextPlayer == player1) {
         modalText.innerText = 'Player 1 Wins!';
     } else {
-        modalText.innerText = 'Player 2 Wins!'
+        modalText.innerText = 'Player 2 Wins!';
     }
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+}
+
+function showModalDraw() {
+    modalText.innerText = 'Draw!';
     modal.classList.remove('hidden');
     overlay.classList.remove('hidden');
 }
