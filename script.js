@@ -2,6 +2,7 @@ const gameBoard = document.querySelectorAll('.squares');
 const modal = document.querySelector('.game-over-modal');
 const modalText = document.querySelector('.result');
 const overlay = document.querySelector('.modal-overlay');
+const newgameBtn = document.querySelector('button')
 
 function setPlayer(name, marker) {
     const playerName = name;
@@ -56,6 +57,12 @@ function startGame() {
     })
 }
 
+function clearBoard() {
+    gameBoard.forEach(square => {
+        square.innerText = '';
+    })
+}
+
 function checkResult() {
     return winSequence.some(sequence => {
         return sequence.every(element => {
@@ -85,5 +92,16 @@ function showModalDraw() {
     modal.classList.remove('hidden');
     overlay.classList.remove('hidden');
 }
+
+function hideModal() {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+}
+
+newgameBtn.addEventListener('click', function() {
+    hideModal()
+    clearBoard()
+    startGame()
+})
 
 startGame()
